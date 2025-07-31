@@ -129,10 +129,8 @@ class Products(BaseModel):
     materials = CharField()
 
 db.connect()
-db.create_tables([
-    Partners, Menegers, Bid, Employeers, Personnel,
-    Access, Materials, Warehouse, Suppliers, Products
-])
-db.close()
+db.create_tables([Partners, Menegers, Bid, Employeers, Personnel, Access,
+                   Materials, Warehouse, Suppliers, Products], safe=True)
 
+db.close()
 # End of company.py
