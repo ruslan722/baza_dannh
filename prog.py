@@ -7,7 +7,8 @@ root.title('Программа на tkinter')
 root.geometry('800x600')
 root.resizable(False, False)
 root.configure(bg='black')
-shapla = Label(root, text='шапка', bg='#2D6033', fg ='white', font=('Gabriolla', 20), width=50, height=2)
+shapla = Label(root, text='шапка', bg='#2D6033', fg ='white',
+               font=('Gabriolla', 20), width=50, height=2)
 shapla.place(x=0, y=15)
 
 image = PhotoImage(file='icon.png')
