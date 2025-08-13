@@ -128,9 +128,20 @@ class Products(BaseModel):
     number_people = IntegerField()
     materials = CharField()
 
+class Materials2(BaseModel):
+    '''Для приложения'''
+    id = AutoField()
+    type = CharField()
+    name = CharField()
+    min_core = IntegerField()
+    core = IntegerField()
+    edinisa = CharField()
+    tr_core = IntegerField()
+    core_ypakovka = IntegerField()
+
 db.connect()
 db.create_tables([Partners, Menegers, Bid, Employeers, Personnel, Access,
-                   Materials, Warehouse, Suppliers, Products], safe=True)
+                   Materials, Warehouse, Suppliers, Products, Materials2 ], safe=True)
 
 db.close()
 # End of company.py
