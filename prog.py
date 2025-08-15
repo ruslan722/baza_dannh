@@ -23,6 +23,19 @@ def get_materials():
     return materials
 
 mat = get_materials()
-print(mat)
+
+y_posihion = 100
+
+for i in mat:
+    stroka = Label(root, bg='#BBD9B2', width= 108, height= 7)
+    stroka.place(x=20, y= y_posihion)
+    text_type = Label(stroka, text=f'{i.type}', bg = '#BBD9B2', font=('Gabriolla', 12))
+    text_type.place(x=5, y= 5)
+    text_name = Label(stroka, text=f'| {i.name}' , bg = '#BBD9B2', font=('Gabriolla', 12))
+    text_name.place(x= 70, y=5)
+    text_min_core = Label(stroka, text=f'Минимальное количество: {i.min_core}',
+                          bg= '#BBD9B2', font=('Gabriolla', 9))
+    text_min_core.place(x=5, y=25)
+    y_posihion += 130
 
 root.mainloop()
