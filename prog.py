@@ -1,6 +1,6 @@
 '''ПРОГРАММА'''
 import tkinter as tk
-from tkinter import Label, PhotoImage
+from tkinter import Label, PhotoImage, Button
 from company import Materials2
 
 root = tk.Tk()
@@ -27,7 +27,7 @@ mat = get_materials()
 y_posihion = 100
 
 for i in mat:
-    stroka = Label(root, bg='#BBD9B2', width= 108, height= 7)
+    stroka = Label(root, bg='#BBD9B2', width= 108, height= 5)
     stroka.place(x=20, y= y_posihion)
     text_type = Label(stroka, text=f'{i.type}', bg = '#BBD9B2', font=('Gabriolla', 12))
     text_type.place(x=5, y= 5)
@@ -36,6 +36,25 @@ for i in mat:
     text_min_core = Label(stroka, text=f'Минимальное количество: {i.min_core}',
                           bg= '#BBD9B2', font=('Gabriolla', 9))
     text_min_core.place(x=5, y=25)
-    y_posihion += 130
+
+    text_core = Label(stroka, text=f'Количество на складе: {i.core}' ,
+                      bg= '#BBD9B2',  font=('Gabriolla', 9))
+    text_core.place(x=5, y=40)
+    text_price = Label(stroka, text= f'Цена: {i.edinisa} /единица измерения | {i.core_ypakovka} ',
+                       bg= '#BBD9B2',  font=('Gabriolla', 9))
+    text_price.place(x=5, y=55)
+    text_tr_core = Label(stroka, text=f'Требуемое количество: {i.tr_core}',
+                         bg = '#BBD9B2', font=('Gabriolla', 12))
+    text_tr_core.place(x=500, y= 5)
+
+    y_posihion += 90
+
+button_back = Button(root, text='Назад', bg = "#2D6033",
+                     fg= 'white', width=15,  font=('Gabriolla', 9))
+button_back.place(x=220, y=550)
+
+button_forward = Button(root, text='Вперёд', bg = "#2D6033",
+                     fg= 'white', width=15,  font=('Gabriolla', 9))
+button_forward.place(x=450, y=550)
 
 root.mainloop()
