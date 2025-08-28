@@ -68,7 +68,7 @@ def first_window(event=None):
         y_posihion += 90
 
     def funciion_button():
-        root_two = tk.Tk()
+        root_two = tk.Toplevel(root)
         root_two.title('Создание записи')
         root_two.geometry('400x300')
         root_two.resizable(False, False)
@@ -88,7 +88,6 @@ def first_window(event=None):
         name_pol = Entry(root_two)
         name_pol.place(x=200, y=35)
 
-        root_two.mainloop()
 
     button_grid = Button(root, width=15, text='Создать', bg='#2D6033',
                          fg='white',
