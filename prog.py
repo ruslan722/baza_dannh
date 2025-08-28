@@ -1,6 +1,6 @@
 '''ПРОГРАММА'''
 import tkinter as tk
-from tkinter import Label, PhotoImage, messagebox
+from tkinter import Label, PhotoImage, messagebox, Button, Entry
 from company import Materials2
 
 root = tk.Tk()
@@ -54,6 +54,34 @@ def first_window(event=None):
 
         y_posihion += 90
 
+    def funciion_button():
+        root_two = tk.Tk()
+        root_two.title('Создание записи')
+        root_two.geometry('400x300')
+        root_two.resizable(False, False)
+        root_two.configure(bg='#FFFFFF')
+
+        text_type = Label(root_two, text=  'Тип' ,
+                          bg='#FFFFFF' , font= ('Gabriolla' , 9))
+        text_type.place(x=10, y=10)
+
+        type_pol = Entry(root_two)
+        type_pol.place(x= 200, y=10)
+        
+        text_name =Label(root_two, text=  'Наименование материала' ,
+                          bg='#FFFFFF' , font= ('Gabriolla' , 9))
+        text_name.place(x= 10, y=35)
+
+        name_pol = Entry(root_two)
+        name_pol.place(x=200, y=35)
+
+
+        root_two.mainloop()
+
+        
+    button_grid = Button(root, width= 15, text= 'Создать', bg= '#2D6033' , fg= 'white',
+                       font=('Gabriolla', 9), command= funciion_button)
+    button_grid.place(x=340, y=500)
 
 def two_window(event=None):
     '''Функционал окна '''
