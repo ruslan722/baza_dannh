@@ -11,14 +11,16 @@ root.configure(bg='#FFFFFF')
 
 
 def clear_window():
+    '''чистка окна'''
     for widget in root.winfo_children():
         if widget not in (button_back, button_forward):
             widget.destroy()
 
 
 def first_window(event=None):
-    clear_window()
     '''Функционал окна '''
+    clear_window()
+
     shapla = Label(root, text='Первое окно', bg='#2D6033',
                    fg='white',
                    font=('Gabriolla', 20), width=50, height=2)
@@ -88,6 +90,67 @@ def first_window(event=None):
         name_pol = Entry(root_two)
         name_pol.place(x=200, y=35)
 
+        text_min_core = Label(root_two, text= 'Минимальное количество',
+                              bg='#FFFFFF', font=('Gabriolla', 9))
+        text_min_core.place(x=10, y=60)
+
+        min_core_pol = Entry(root_two)
+        min_core_pol.place(x=200, y=60)
+
+        text_core = Label(root_two, text= 'Количество на складе' ,
+                          bg='#FFFFFF', font=('Gabriolla', 9))
+        text_core.place(x=10, y=85)
+        core_pol = Entry(root_two)
+        core_pol.place(x=200, y=85)
+
+        text_edinisa = Label(root_two, text= 'Единица измерения ',
+                            bg='#FFFFFF', font=('Gabriolla', 9))
+        text_edinisa.place(x=10, y=110)
+        edinisa_pol = Entry(root_two)
+        edinisa_pol.place(x=200, y=110)
+
+        text_core_ypakovka = Label(root_two, text= 'Количество в упаковке',
+                                    bg='#FFFFFF', font=('Gabriolla', 9))
+        text_core_ypakovka.place(x=10, y= 135)
+        core_ypakovka_pol = Entry(root_two)
+        core_ypakovka_pol.place(x=200, y=135)
+        
+        text_tr_core = Label(root_two, text= 'Требуемое количество', 
+                             bg='#FFFFFF', font=('Gabriolla', 9))
+        text_tr_core.place(x=10, y=160)
+        tr_core_pol = Entry(root_two)
+        tr_core_pol.place(x=200, y=160)
+        
+        def add_button():
+           
+            type = type_pol.get()
+            name = name_pol.get()
+            min_core =  min_core_pol.get()
+            core = core_pol.get()
+            edinisa = edinisa_pol.get()
+            tr_core = tr_core_pol.get()
+            core_ypakovka = core_ypakovka_pol.get()
+
+            baza = Materials2.create(
+                type = type,
+                name = name,
+                min_core = min_core,
+                core = core,
+                edinisa = edinisa,
+                tr_core = tr_core,
+                core_ypakovka = core_ypakovka
+            )
+
+            root_two.destroy()
+
+        sozdat = Button(root_two, text= 'Добавить запись',
+                        bg='#2D6033' , fg='white',
+                        font=('Gabriolla', 9) ,  width= 15,
+                        command= add_button)
+        sozdat.place(x=130, y=210)
+
+
+
 
     button_grid = Button(root, width=15, text='Создать', bg='#2D6033',
                          fg='white',
@@ -95,9 +158,10 @@ def first_window(event=None):
     button_grid.place(x=340, y=500)
 
 
+
 def two_window(event=None):
-    clear_window()
     '''Функционал окна '''
+    clear_window()
 
     shapla = Label(root, text='Второе окно', bg='#2D6033', fg='white',
                    font=('Gabriolla', 20), width=50, height=2)
